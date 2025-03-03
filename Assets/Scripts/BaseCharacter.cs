@@ -2,6 +2,7 @@ using UnityEngine;
 using LearnGame.Movement;
 using LearnGame.Shooting;
 using Unity.VisualScripting;
+using LearnGame.PickUp;
 
 
 namespace LearnGame
@@ -56,6 +57,12 @@ namespace LearnGame
                 _health -= bullet.Damage;
                 Destroy(other.gameObject);
 
+            }
+            else if (LayerUtils.IsPickUp(other.gameObject))
+            {
+                var pickup = other.gameObject.GetComponent<PickUpWeapon>();
+                _shootingController.SetWeapon(pickup.WeaponPrefab, _hand);
+                Destroy(other.gameObject);
             }
         }
     }

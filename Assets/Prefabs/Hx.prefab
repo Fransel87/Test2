@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 974973417254957430, guid: d444b7910da55ea44baa1418ca855bad, type: 3}
   <ShootRadius>k__BackingField: 13
-  <ShootFrequencySec>k__BackingField: 0.1
+  <ShootFrequencySec>k__BackingField: 0.3
   _damage: 0.1
   _bulletMaxFlyDisctance: 10
   _bulletFlySpeed: 10
