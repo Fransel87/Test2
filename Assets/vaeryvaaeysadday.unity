@@ -526,6 +526,14 @@ PrefabInstance:
       value: RifleSpawner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
+      propertyPath: MaxSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
+      propertyPath: MinSec
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
       propertyPath: _maxCount
       value: 2
       objectReference: {fileID: 0}
@@ -591,8 +599,20 @@ PrefabInstance:
       value: RifleSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
+      propertyPath: MaxSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
+      propertyPath: MinSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
       propertyPath: _range
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
+      propertyPath: _maxCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3571261559528606542, guid: ef0ce1beba62a064b912f61f40a3f3d2, type: 3}
       propertyPath: _spawnIntervalSeconds

@@ -15,19 +15,27 @@ namespace LearnGame.PickUp
         private int _maxCount = 3;
 
         [SerializeField]
-        private float _spawnIntervalSeconds = 10f; //время до спавна следующего предмета
+        private float MaxSec, MinSec;
+
+        private float _spawnIntervalSeconds;  //время до спавна следующего предмета
 
 		private float _currentSpawnTimerSeconds; //время с момента спавна
 
         private int _currentCount; // текущее количество заспавненных предметов
 
+       void Start()
+        {
+            _spawnIntervalSeconds = Random.Range(MinSec, MaxSec);
+        }
         void Update()
 		{
+
             if (_currentCount < _maxCount)
             {
                 _currentSpawnTimerSeconds += Time.deltaTime;
                 if (_currentSpawnTimerSeconds > _spawnIntervalSeconds)
                 {
+                    _spawnIntervalSeconds = Random.Range(MinSec, MaxSec);
                     _currentSpawnTimerSeconds = 0f;
                     _currentCount++;
 
