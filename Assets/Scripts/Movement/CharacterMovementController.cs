@@ -11,7 +11,7 @@ namespace LearnGame.Movement
         [SerializeField]
         private int _nTimesMoreSpeed = 2;  // увеличение скорости в n раз
         [SerializeField]
-		private float _speed = 10f;
+		public static float _speed = 10f;
         [SerializeField]
         private float MaxRadiansDelta = 10f;
         public Vector3 MovementDirection { get; set; }

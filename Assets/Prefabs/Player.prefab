@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 9087921492159873801}
   - component: {fileID: 1525497530960103628}
   - component: {fileID: 1065608418374618222}
+  - component: {fileID: 3551413323625706604}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseWeaponPrefab: {fileID: 2196260248195360384, guid: bdebdfbb3a940ad47b142c5eff4f1e33, type: 3}
+  _BonusPrefab: {fileID: 3222686875206507051, guid: 5aedfc0250f8115468a010e2aeaa1232, type: 3}
   _hand: {fileID: 3363687262418552936}
   _health: 10
 --- !u!114 &1525497530960103628
@@ -196,6 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c99d005ea95048b7fae341e187ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3551413323625706604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106131248920892406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14529a3423e874640a59d6534e0f54b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TimerSec: 10
 --- !u!1 &2791742045096780842
 GameObject:
   m_ObjectHideFlags: 0

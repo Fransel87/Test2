@@ -68,12 +68,15 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyCharacter.cs" />
     <Compile Include="Assets\Scripts\BaseCharacter.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
+    <Compile Include="Assets\Scripts\Bonus\BonusController.cs" />
     <Compile Include="Assets\Scripts\Shooting\Weapon.cs" />
     <Compile Include="Assets\Scripts\Movement\DummyDirectionController.cs" />
     <Compile Include="Assets\Scripts\Movement\IMovementDirectionSource.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpWeapon.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Shooting\ShootingController.cs" />
+    <Compile Include="Assets\Scripts\Bonus\SpeedBonus.cs" />
+    <Compile Include="Assets\Scripts\PickUp\PickUpBonus.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovementDirectionController.cs" />
   </ItemGroup>

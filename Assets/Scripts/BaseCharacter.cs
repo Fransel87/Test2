@@ -3,6 +3,7 @@ using LearnGame.Movement;
 using LearnGame.Shooting;
 using Unity.VisualScripting;
 using LearnGame.PickUp;
+using LearnGame.Bonus;
 
 
 namespace LearnGame
@@ -14,6 +15,9 @@ namespace LearnGame
         private Weapon _baseWeaponPrefab;
 
         [SerializeField]
+        private SpeedBonus _BonusPrefab;
+
+        [SerializeField]
         private Transform _hand;
 
         [SerializeField]
@@ -22,12 +26,14 @@ namespace LearnGame
         private CharacterMovementController _characterMovementController;
         private IMovementDirectionSource _movementDirectionSource;
         private ShootingController _shootingController;
+        private BonusController _bonusController;
 
         protected void Awake()
         {
             _characterMovementController = GetComponent<CharacterMovementController>();
             _movementDirectionSource = GetComponent<IMovementDirectionSource>();
             _shootingController = GetComponent<ShootingController>();
+            _bonusController = GetComponent<BonusController>();
         }
 
         protected void Start()
@@ -64,10 +70,21 @@ namespace LearnGame
                 pickup.PickUp(this);
                 Destroy(other.gameObject);
             }
+            else if (LayerUtils.IsPickUpBonus(other.gameObject))
+            {
+                var pickup = other.gameObject.GetComponent<PickUpBonus>();
+                pickup.PickUp(this);
+                Destroy(other.gameObject);
+            }
         }
         public void SetWeapon(Weapon weapon)
         {
             _shootingController.SetWeapon(weapon, _hand);
+        }
+
+        public void SetBonus (SpeedBonus bonus)
+        {
+            _bonusController.SetBonus(bonus, _hand);
         }
     }
 }
