@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PickUp\PickUpItem.cs" />
     <Compile Include="Assets\Scripts\LayerUtils.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Shooting\Bullet.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\PickUp\PickUpWeapon.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Shooting\ShootingController.cs" />
+    <Compile Include="Assets\Scripts\PickUp\PickUpSpawner.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovementDirectionController.cs" />
   </ItemGroup>
   <ItemGroup>
