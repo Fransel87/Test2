@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f40c5adf2c2f1488c2e48705c6700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponPrefab>k__BackingField: {fileID: -2368738702432830560, guid: 723c1926e48a1584fbf04b037a8048f9, type: 3}
+  _weaponPrefab: {fileID: -2368738702432830560, guid: 723c1926e48a1584fbf04b037a8048f9, type: 3}
 --- !u!1 &3133659945426405351
 GameObject:
   m_ObjectHideFlags: 0

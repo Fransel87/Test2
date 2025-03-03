@@ -6,7 +6,7 @@ namespace LearnGame.PickUp
 	public class PickUpSpawner : MonoBehaviour
 	{
 		[SerializeField]
-		private PickUpWeapon _pickUpPrefab;
+		private PickUpItem _pickUpPrefab;
 
 		[SerializeField]
 		private float _range = 2f;
@@ -34,11 +34,17 @@ namespace LearnGame.PickUp
                     var randomPointInsideRange = Random.insideUnitCircle * _range;
                     var randomPosition = new Vector3(randomPointInsideRange.x, 0f, randomPointInsideRange.y) + transform.position;
 
-                    Instantiate(_pickUpPrefab, randomPosition, Quaternion.identity, transform);
+                    var pickUp = Instantiate(_pickUpPrefab, randomPosition, Quaternion.identity, transform);
+                    pickUp.OnPickedUp += OnItemPickedUp;
 
                 }
             }
 		}
+        private void OnItemPickedUp(PickUpItem pickedUpItem)
+        {
+            _currentCount--;
+            pickedUpItem.OnPickedUp -= OnItemPickedUp;
+        }
 
         protected void OnDrawGizmos()
         {

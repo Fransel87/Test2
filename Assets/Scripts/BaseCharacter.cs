@@ -8,7 +8,7 @@ using LearnGame.PickUp;
 namespace LearnGame
 {
     [RequireComponent(typeof(CharacterMovementController), typeof(ShootingController))]
-    public class BaseCharacter : MonoBehaviour
+    public abstract class BaseCharacter : MonoBehaviour
     {
         [SerializeField]
         private Weapon _baseWeaponPrefab;
@@ -32,7 +32,7 @@ namespace LearnGame
 
         protected void Start()
         {
-            _shootingController.SetWeapon(_baseWeaponPrefab, _hand);
+            SetWeapon(_baseWeaponPrefab);
         }
         protected void Update()
         {
@@ -61,9 +61,13 @@ namespace LearnGame
             else if (LayerUtils.IsPickUp(other.gameObject))
             {
                 var pickup = other.gameObject.GetComponent<PickUpWeapon>();
-                _shootingController.SetWeapon(pickup.WeaponPrefab, _hand);
+                pickup.PickUp(this);
                 Destroy(other.gameObject);
             }
+        }
+        public void SetWeapon(Weapon weapon)
+        {
+            _shootingController.SetWeapon(weapon, _hand);
         }
     }
 }
