@@ -6,26 +6,29 @@ namespace LearnGame.Bonus
 {
 	public class BonusController : MonoBehaviour
 	{
-		private SpeedBonus _speedBonus;
+		public static SpeedBonus _speedBonus;
         private float _bonusTimer;
         public int counter = 0;
+        public static bool _gotIt = false;
 
         void Update()
-        {   if (counter >= 1) {
+        {   if (counter >0 && _bonusTimer<=0) {
                 _bonusTimer = _speedBonus._bonusTime;
             }
-            if (counter !=0 && _bonusTimer >0)
+            if (_bonusTimer >0)
             {
                 _bonusTimer -= Time.deltaTime;
 
-                CharacterMovementController._speed = _speedBonus._nMoreSpeed* 10f;
+                CharacterMovementController._whomSpeed = _speedBonus._nMoreSpeed* CharacterMovementController._speed;
+                _gotIt = true;
             }
                
-            if (counter ==1 && _bonusTimer < 0)
+            if (counter >0 && _bonusTimer <=0 && _gotIt==true)
             {
-                CharacterMovementController._speed = 10f;
+                CharacterMovementController._whomSpeed = CharacterMovementController._speed;
                 counter = 0;
                 Destroy(_speedBonus.gameObject);
+                _gotIt = false;
             }
         }
             public void SetBonus(SpeedBonus _bonusPrefab, Transform hand)

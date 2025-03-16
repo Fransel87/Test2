@@ -1,4 +1,5 @@
-﻿using NUnit.Framework.Constraints;
+﻿using LearnGame.Movement;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 namespace LearnGame.Shooting
@@ -11,10 +12,11 @@ namespace LearnGame.Shooting
 		private Weapon _weapon;
 		private float _nextShotTimerSec;
 		private GameObject _target;
-	
-		void Update()
+
+       
+        void Update()
 		{
-			_target = GetTarget();
+            _target = GetTarget();
 
 			_nextShotTimerSec -= Time.deltaTime;
 			if (_nextShotTimerSec<0)
@@ -45,13 +47,12 @@ namespace LearnGame.Shooting
 			GameObject target = null;
 			var position = _weapon.transform.position;
 			var radius = _weapon.ShootRadius;
-            var mask = LayerUtils.EnemyMask;
-
-            if (gameObject == GameObject.Find("Enemy"))
-			{
+			int mask = LayerUtils.EnemyMask;
+            if (gameObject.name == "Enemy")
+            {
                 mask = LayerUtils.PlayerMask;
             }
-         
+
             var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);
 			if (size > 0)
 			{

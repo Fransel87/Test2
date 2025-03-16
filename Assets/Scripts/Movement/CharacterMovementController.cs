@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace LearnGame.Movement
 {
@@ -8,41 +7,37 @@ namespace LearnGame.Movement
 	{
 		private static readonly float sqrEpsilon = Mathf.Epsilon * Mathf.Epsilon;
 
-        [SerializeField]
-        private int _nTimesMoreSpeed = 2;  // увеличение скорости в n раз
+        
         [SerializeField]
 		public static float _speed = 10f;
         [SerializeField]
         private float MaxRadiansDelta = 10f;
         public Vector3 MovementDirection { get; set; }
         public Vector3 LookDirection { get; set; }
-
+        public static float _whomSpeed = _speed;
         private CharacterController _CharacterController;
 
 		protected void Awake()
 		{
 			_CharacterController = GetComponent<CharacterController>();
+			
 		}
 
 	
 		protected void Update()
 		{
-			if (Input.GetKey(KeyCode.Space))   //ускорение на пробел
-			{
-				_speed = _nTimesMoreSpeed * 10f;
-			}
-			else
-			{
-				_speed = 10f;
-			}
+            if (gameObject.name == "Player")
+            {
+                _whomSpeed = PlayerMovementDirectionController._currentSpeed;
+            }
 
-				Translate();
+            Translate();
 			if (MaxRadiansDelta > 0f && LookDirection != Vector3.zero)
 				Rotate();
 		}
 		private void Translate() {
 
-            var delta = MovementDirection * _speed * Time.deltaTime;
+            var delta = MovementDirection * _whomSpeed * Time.deltaTime;
             _CharacterController.Move(delta);
         }
 		private void Rotate()
