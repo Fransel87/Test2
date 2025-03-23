@@ -6,39 +6,28 @@ namespace LearnGame.Bonus
 {
 	public class BonusController : MonoBehaviour
 	{
-		public static SpeedBonus _speedBonus;
-        private float _bonusTimer;
-        public int counter = 0;
-        public static bool _gotIt = false;
+		private static SpeedBonus _speedBonus;
+        private float _bonusTimer = -10f;
 
         void Update()
-        {   if (counter >0 && _bonusTimer<=0) {
-                _bonusTimer = _speedBonus._bonusTime;
-            }
-            if (_bonusTimer >0)
-            {
+        {   
+            if (_bonusTimer > 0f) 
                 _bonusTimer -= Time.deltaTime;
-
-                CharacterMovementController._whomSpeed = _speedBonus._nMoreSpeed* CharacterMovementController._speed;
-                _gotIt = true;
-            }
-               
-            if (counter >0 && _bonusTimer <=0 && _gotIt==true)
+            
+            if (-9f <=_bonusTimer && _bonusTimer <= 0f)
             {
-                CharacterMovementController._whomSpeed = CharacterMovementController._speed;
-                counter = 0;
+                PlayerMovementDirectionController._currentSpeed /= _speedBonus.NMoreSpeed;
+                _bonusTimer = -10f;
                 Destroy(_speedBonus.gameObject);
-                _gotIt = false;
             }
         }
-            public void SetBonus(SpeedBonus _bonusPrefab, Transform hand)
+        public void SetBonus(SpeedBonus _bonusPrefab, Transform hand)
         {
-            _speedBonus = Instantiate(_bonusPrefab, hand);
-            _speedBonus.transform.localPosition = Vector3.zero;
-            _speedBonus.transform.localRotation = Quaternion.identity;
-            counter++;
-
+         _speedBonus = Instantiate(_bonusPrefab, hand);
+         _speedBonus.transform.localPosition = Vector3.zero;
+         _speedBonus.transform.localRotation = Quaternion.identity;
+         _bonusTimer = _speedBonus.BonusTime;
+         PlayerMovementDirectionController._currentSpeed *= _speedBonus.NMoreSpeed;
         }
-   
 	}
 }

@@ -14,13 +14,12 @@ namespace LearnGame.Movement
         private float MaxRadiansDelta = 10f;
         public Vector3 MovementDirection { get; set; }
         public Vector3 LookDirection { get; set; }
-        public static float _whomSpeed = _speed;
+        public float WhomSpeed = _speed;
         private CharacterController _CharacterController;
 
 		protected void Awake()
 		{
 			_CharacterController = GetComponent<CharacterController>();
-			
 		}
 
 	
@@ -28,7 +27,7 @@ namespace LearnGame.Movement
 		{
             if (gameObject.name == "Player")
             {
-                _whomSpeed = PlayerMovementDirectionController._currentSpeed;
+                WhomSpeed = PlayerMovementDirectionController._currentSpeed;
             }
 
             Translate();
@@ -37,7 +36,7 @@ namespace LearnGame.Movement
 		}
 		private void Translate() {
 
-            var delta = MovementDirection * _whomSpeed * Time.deltaTime;
+            var delta = MovementDirection * WhomSpeed * Time.deltaTime;
             _CharacterController.Move(delta);
         }
 		private void Rotate()

@@ -23,17 +23,6 @@ namespace LearnGame.Movement
             {
                 _currentSpeed = _nTimesMoreSpeed * CharacterMovementController._speed;
             }
-            else
-            {
-                if (BonusController._gotIt ==true)     //бонус 
-                {
-                    _currentSpeed = BonusController._speedBonus._nMoreSpeed * CharacterMovementController._speed;
-                }
-                else
-                    _currentSpeed = CharacterMovementController._speed;
-            }
-
-            
                 var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
 			var direction = new Vector3(horizontal, 0, vertical);
