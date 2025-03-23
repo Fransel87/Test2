@@ -1,6 +1,4 @@
-﻿using LearnGame.Movement;
-using NUnit.Framework.Constraints;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LearnGame.Shooting
 {
@@ -8,7 +6,7 @@ namespace LearnGame.Shooting
 	{
 		public Vector3 TargetPosition => _target.transform.position;
 		public bool HasTarget => _target != null;
-		private Collider[] _colliders = new Collider[2];
+		private Collider[] _colliders = new Collider[3];
 		private Weapon _weapon;
 		private float _nextShotTimerSec;
 		private GameObject _target;
@@ -47,11 +45,7 @@ namespace LearnGame.Shooting
 			GameObject target = null;
 			var position = _weapon.transform.position;
 			var radius = _weapon.ShootRadius;
-			int mask = LayerUtils.EnemyMask;
-            if (gameObject.name == "Enemy")
-            {
-                mask = LayerUtils.PlayerMask;
-            }
+			int mask = LayerUtils.ShootingTargetMask;
 
             var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);
 			if (size > 0)
