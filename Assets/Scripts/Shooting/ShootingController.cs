@@ -42,13 +42,7 @@ namespace LearnGame.Shooting
 			GameObject target = null;
 			var position = _weapon.transform.position;
 			var radius = _weapon.ShootRadius;
-            var mask = LayerUtils.EnemyMask;
-
-            if (gameObject == GameObject.Find("Enemy"))
-			{
-                mask = LayerUtils.PlayerMask;
-            }
-         
+			var mask = LayerUtils.ShootingTargetMask;
             var size = Physics.OverlapSphereNonAlloc(position, radius, _colliders, mask);
 			if (size > 0)
 			{
