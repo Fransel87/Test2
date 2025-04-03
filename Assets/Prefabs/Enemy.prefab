@@ -157,8 +157,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_SlopeLimit: 15
+  m_StepOffset: 0.2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -174,9 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3bb256ae8616340bc404ac2c4d5778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nTimesMoreSpeed: 2
-  _speed: 1
   MaxRadiansDelta: 10
+  WhomSpeed: 10
 --- !u!114 &2187308400804507693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseWeaponPrefab: {fileID: -8548417231878281720, guid: 31cdb27f15342d044a8cbd8e875ef83a, type: 3}
+  _BonusPrefab: {fileID: 0}
   _hand: {fileID: 2086597501170067474}
   _health: 5
 --- !u!136 &8233860285511223349

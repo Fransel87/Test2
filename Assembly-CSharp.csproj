@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Shooting\Weapon.cs" />
     <Compile Include="Assets\Scripts\Movement\DummyDirectionController.cs" />
     <Compile Include="Assets\Scripts\Movement\IMovementDirectionSource.cs" />
+    <Compile Include="Assets\Scripts\FSM\BaseState.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpWeapon.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovementController.cs" />
     <Compile Include="Assets\Scripts\Shooting\ShootingController.cs" />
