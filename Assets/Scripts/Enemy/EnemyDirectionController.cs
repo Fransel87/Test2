@@ -7,10 +7,10 @@ namespace LearnGame.Enemy
 	{
 		public Vector3 MovementDirection { get; private set; }
 
-		void UpdateMovementDirection(Vector3 targetPosition)
+		public void UpdateMovementDirection(Vector3 targetPosition)
 		{
-			var direction = targetPosition - transform.position;
-			MovementDirection = direction.normalized;
+			var realDirection = targetPosition - transform.position;
+			MovementDirection = new Vector3(realDirection.x, 0 , realDirection.z).normalized;
 		}
 	}
 }
