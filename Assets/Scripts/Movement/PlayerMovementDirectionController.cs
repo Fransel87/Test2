@@ -1,5 +1,6 @@
 ﻿using LearnGame.Bonus;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 
 
 namespace LearnGame.Movement
@@ -22,6 +23,10 @@ namespace LearnGame.Movement
             if (Input.GetKey(KeyCode.Space))   //ускорение на пробел
             {
                 _currentSpeed = _nTimesMoreSpeed * CharacterMovementController._speed;
+            }
+            else if (BonusController.counter == 0)
+            {
+                _currentSpeed = CharacterMovementController._speed;
             }
                 var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical");
