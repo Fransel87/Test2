@@ -4,7 +4,7 @@ using LearnGame.Enemy;
 using LearnGame.Enemy.States;
 using System.Collections.Generic;
 
-namespace learnGame.States
+namespace LearnGame.States
 {
 	public class EnemyStateMachine : BaseStateMachine
 	{

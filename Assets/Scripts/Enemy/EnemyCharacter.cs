@@ -1,10 +1,9 @@
 using UnityEngine;
-using LearnGame.Movement;
 
 
-namespace LearnGame
+namespace LearnGame.Enemy
 {
-    [RequireComponent(typeof(DummyDirectionController))]
+    [RequireComponent(typeof(EnemyDirectionController), typeof(EnemyAiController))]
     public class EnemyCharacter : BaseCharacter
     {
 

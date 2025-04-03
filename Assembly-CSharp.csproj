@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enemy\States\EnemyStateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyTarget.cs" />
     <Compile Include="Assets\Scripts\Shooting\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyAiController.cs" />
     <Compile Include="Assets\Scripts\Enemy\States\MoveForwardState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyCharacter.cs" />
     <Compile Include="Assets\Scripts\BaseCharacter.cs" />

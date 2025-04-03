@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
-
+﻿
 namespace LearnGame.FSM
 {
 	public abstract class BaseState

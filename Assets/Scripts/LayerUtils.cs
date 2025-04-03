@@ -16,6 +16,7 @@ namespace LearnGame
         public static readonly int PickUpLayer = LayerMask.NameToLayer(PickUpLayerName);
         public static readonly int PickUpBonusLayer = LayerMask.NameToLayer(PickUpBonusLayerName);
         public static readonly int ShootingTargetMask = PlayerMask | EnemyMask;
+        public static readonly int PickUpMask = LayerMask.GetMask(PickUpLayerName);
         public static bool IsBullet(GameObject other) => other.layer == BulletLayer;
         public static bool IsPickUp(GameObject other) => other.layer == PickUpLayer;
         public static bool IsPickUpBonus(GameObject other) => other.layer == PickUpBonusLayer;

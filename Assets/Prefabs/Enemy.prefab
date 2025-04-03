@@ -42,12 +42,13 @@ GameObject:
   - component: {fileID: 6570176576736283864}
   - component: {fileID: 7062871714883864129}
   - component: {fileID: 6877485147857332471}
-  - component: {fileID: 585780755882443988}
   - component: {fileID: 6717116477743893740}
   - component: {fileID: 187781356009361926}
   - component: {fileID: 2187308400804507693}
   - component: {fileID: 1152827528507451484}
   - component: {fileID: 8233860285511223349}
+  - component: {fileID: 3365189172714451779}
+  - component: {fileID: 7436580076880080715}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -125,18 +126,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &585780755882443988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2373577930424487283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1877dbe922b53cf40b86718c1492e451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &6717116477743893740
 CharacterController:
   m_ObjectHideFlags: 0
@@ -227,6 +216,31 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3365189172714451779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373577930424487283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1ef94efc2da5d42a4d799ebfc1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7436580076880080715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373577930424487283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f2d8f02ddb194597116a119c09e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewRadius: 20
 --- !u!1 &8261921367990685999
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using LearnGame.FSM;
 
 namespace LearnGame.Enemy.States
 {
-	public class MoveForwardState : BaseStateMachine
+	public class MoveForwardState : BaseState
 	{
         private readonly EnemyTarget _target;
         private readonly EnemyDirectionController _enemyDirectionController;

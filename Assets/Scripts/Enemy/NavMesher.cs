@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 namespace LearnGame.Enemy
 {
@@ -19,6 +18,7 @@ namespace LearnGame.Enemy
         public NavMesher(Transform agentTransform)
 		{
 			_filter = new NavMeshQueryFilter { areaMask = NavMesh.AllAreas };
+			_navMeshPath = new NavMeshPath();
 			IsPathCalculated = false;
 
 			_agentTransform = agentTransform;
