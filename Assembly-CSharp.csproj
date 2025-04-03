@@ -61,17 +61,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enemy\States\FindWayState.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpItem.cs" />
     <Compile Include="Assets\Scripts\LayerUtils.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enemy\States\IdleState.cs" />
     <Compile Include="Assets\Scripts\FSM\Transition.cs" />
     <Compile Include="Assets\Scripts\Exceptions\AlreadyExistsException.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyTarget.cs" />
     <Compile Include="Assets\Scripts\Shooting\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyCharacter.cs" />
     <Compile Include="Assets\Scripts\BaseCharacter.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Bonus\BonusController.cs" />
     <Compile Include="Assets\Scripts\Shooting\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Enemy\NavMesher.cs" />
     <Compile Include="Assets\Scripts\Movement\DummyDirectionController.cs" />
     <Compile Include="Assets\Scripts\Movement\IMovementDirectionSource.cs" />
     <Compile Include="Assets\Scripts\FSM\BaseState.cs" />
@@ -80,6 +84,7 @@
     <Compile Include="Assets\Scripts\Shooting\ShootingController.cs" />
     <Compile Include="Assets\Scripts\Bonus\SpeedBonus.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpBonus.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyDirectionController.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpSpawner.cs" />
     <Compile Include="Assets\Scripts\FSM\BaseStateMachine.cs" />
     <Compile Include="Assets\Scripts\Movement\PlayerMovementDirectionController.cs" />
