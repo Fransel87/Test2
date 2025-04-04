@@ -12,14 +12,13 @@ namespace LearnGame.Enemy
         private EnemyStateMachine _stateMachine;
         private EnemyTarget _target;
 
-        [System.Obsolete]
         protected void Awake()
         {
-            var player = FindObjectOfType<PlayerCharacter>();
+            var player = FindAnyObjectByType<PlayerCharacter>();
 
             var enemyDirectionController = GetComponent<EnemyDirectionController>();
             var navMesher = new NavMesher(transform);
-            _target = new EnemyTarget(transform,_viewRadius,player);
+            _target = new EnemyTarget(transform, _viewRadius,player);
             _stateMachine = new EnemyStateMachine(enemyDirectionController, navMesher, _target);
         }
 
