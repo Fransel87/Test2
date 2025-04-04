@@ -3,6 +3,7 @@
 using LearnGame.Bonus;
 using LearnGame.Shooting;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace LearnGame.PickUp
 {
@@ -14,8 +15,8 @@ namespace LearnGame.PickUp
 
         public override void PickUp(BaseCharacter character)
         {
-            base.PickUp(character);
-            character.SetBonus(_bonusPrefab);
+                base.PickUp(character);
+                character.SetBonus(_bonusPrefab);
         }
     }
 }

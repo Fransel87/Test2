@@ -4,6 +4,7 @@ using LearnGame.Shooting;
 using Unity.VisualScripting;
 using LearnGame.PickUp;
 using LearnGame.Bonus;
+using UnityEngine.TextCore.Text;
 
 
 namespace LearnGame
@@ -22,6 +23,8 @@ namespace LearnGame
 
         [SerializeField]
         private float _health = 2f;
+
+        public static int counter1 = 0;
 
         private CharacterMovementController _characterMovementController;
         private IMovementDirectionSource _movementDirectionSource;
@@ -72,9 +75,14 @@ namespace LearnGame
             }
             else if (LayerUtils.IsPickUpBonus(other.gameObject))
             {
-                var pickup = other.gameObject.GetComponent<PickUpBonus>();
-                pickup.PickUp(this);
-                Destroy(other.gameObject);
+                if (gameObject.layer == LayerUtils.PlayerLayer && counter1 == 0)
+                {
+                    var pickup = other.gameObject.GetComponent<PickUpBonus>();
+                    pickup.PickUp(this);
+                    counter1++;
+                    Destroy(other.gameObject);
+                }
+                
             }
         }
         public void SetWeapon(Weapon weapon)

@@ -20,7 +20,7 @@ namespace LearnGame.Movement
 		protected void Awake()
 		{
 			_CharacterController = GetComponent<CharacterController>();
-		}
+        }
 
 	
 		protected void Update()
@@ -29,7 +29,6 @@ namespace LearnGame.Movement
             {
                 WhomSpeed = PlayerMovementDirectionController._currentSpeed;
             }
-
             Translate();
 			if (MaxRadiansDelta > 0f && LookDirection != Vector3.zero)
 				Rotate();

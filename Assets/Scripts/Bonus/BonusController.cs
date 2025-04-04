@@ -1,7 +1,6 @@
 ﻿
 using UnityEngine;
 using LearnGame.Movement;
-using UnityEngine.InputSystem.Controls;
 
 namespace LearnGame.Bonus
 {
@@ -20,8 +19,9 @@ namespace LearnGame.Bonus
             {
                 PlayerMovementDirectionController._currentSpeed /= _speedBonus.NMoreSpeed;
                 _bonusTimer = -10f;
-                counter = 0;
                 Destroy(_speedBonus.gameObject);
+                counter = 0;
+                BaseCharacter.counter1 = 0;
             }
         }
         public void SetBonus(SpeedBonus _bonusPrefab, Transform hand)
