@@ -6,9 +6,7 @@ namespace LearnGame.Movement
 	public class CharacterMovementController : MonoBehaviour
 	{
 		private static readonly float sqrEpsilon = Mathf.Epsilon * Mathf.Epsilon;
-
         
-        [SerializeField]
 		public static float _speed = 10f;
         [SerializeField]
         private float MaxRadiansDelta = 10f;

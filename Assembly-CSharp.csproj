@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\States\IdleState.cs" />
     <Compile Include="Assets\Scripts\FSM\Transition.cs" />
+    <Compile Include="Assets\Scripts\Enemy\States\RunAway.cs" />
     <Compile Include="Assets\Scripts\Exceptions\AlreadyExistsException.cs" />
     <Compile Include="Assets\Scripts\Enemy\States\EnemyStateMachine.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyTarget.cs" />
