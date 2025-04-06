@@ -1021,6 +1021,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152827528507451484, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
+      propertyPath: _health
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2373577930424487283, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -1424,7 +1428,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1152827528507451484, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
       propertyPath: _health
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2373577930424487283, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
       propertyPath: m_Name
