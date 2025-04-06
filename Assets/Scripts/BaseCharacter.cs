@@ -22,8 +22,8 @@ namespace LearnGame
         private Transform _hand;
 
         [SerializeField]
-        private float _health = 20f;
-        public static int counterHealth = 0;
+        private float _health = 10f;
+        public static bool counterHealth = false;
         public static int counter1 = 0;
 
         private CharacterMovementController _characterMovementController;
@@ -52,8 +52,9 @@ namespace LearnGame
 
             _characterMovementController.MovementDirection = direction;
             _characterMovementController.LookDirection = lookDirection;
-            if (_health <= 10f)
-                counterHealth++;
+            if (_health <= 20f)
+                counterHealth = true;
+
             if (_health <= 0f)
                 Destroy(gameObject);
 

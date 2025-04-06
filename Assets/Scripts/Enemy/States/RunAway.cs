@@ -9,8 +9,7 @@ namespace LearnGame.Enemy.States
         private readonly EnemyTarget _target;
         private readonly EnemyDirectionController _enemyDirectionController;
         private Vector3 _currentPoint;
-        private readonly BaseCharacter baseCharacter;
-        private float Distance = 5f;
+        private float Distance = 40f;
         public RunAway(EnemyTarget target, EnemyDirectionController enemyDirectionController)
         {
             _target = target;
@@ -24,13 +23,15 @@ namespace LearnGame.Enemy.States
             {
                 hasExecuted = true;
                 // Выполнить код только при первом входе в состояние
-                CharacterMovementController._speed = CharacterMovementController._speed * 2;
+                CharacterMovementController._speed = CharacterMovementController._speed * 4;
             }
         }
+      
         public override void Execute()
         {
+            Enter();
             Vector3 targetPosition = _target.Closest.transform.position;
-            Vector3 direction = (baseCharacter.transform.position - targetPosition).normalized;
+            Vector3 direction = (targetPosition- EnemyTarget._agentTransform.transform.position).normalized;
             _currentPoint = targetPosition + direction * Distance;
             _enemyDirectionController.UpdateMovementDirection(_currentPoint);
             

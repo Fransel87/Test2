@@ -6,7 +6,7 @@ namespace LearnGame.Enemy
 
      {
         public GameObject Closest { get; private set; }
-        private readonly Transform _agentTransform;
+        public static Transform _agentTransform;
         private readonly float _viewRadius;
         private readonly PlayerCharacter _player;
         private readonly Collider[] _colliders = new Collider[10];
@@ -19,7 +19,7 @@ namespace LearnGame.Enemy
         public void FindClosest()
         {
             float minDistance = float.MaxValue;
-            var count = FindAllTargets(LayerUtils.PickUpMask | LayerUtils.ShootingTargetMask);
+            var count = FindAllTargets(LayerUtils.ShootingTargetMask);
             for (int i = 0; i < count; i++)
             {
                 var go = _colliders[i].gameObject;

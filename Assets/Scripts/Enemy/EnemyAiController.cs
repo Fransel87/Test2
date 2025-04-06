@@ -15,11 +15,11 @@ namespace LearnGame.Enemy
         protected void Awake()
         {
             var player = FindAnyObjectByType<PlayerCharacter>();
-
+            var baseCharacter = GetComponent<BaseCharacter>();
             var enemyDirectionController = GetComponent<EnemyDirectionController>();
             var navMesher = new NavMesher(transform);
-            _target = new EnemyTarget(transform, _viewRadius,player);
-            _stateMachine = new EnemyStateMachine(enemyDirectionController, navMesher, _target);
+            _target = new EnemyTarget(transform, _viewRadius, player);
+            _stateMachine = new EnemyStateMachine(enemyDirectionController, navMesher, _target, baseCharacter);
         }
 
         protected void Update()

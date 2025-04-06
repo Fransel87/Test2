@@ -4,6 +4,7 @@ using LearnGame.Enemy;
 using LearnGame.Enemy.States;
 using System.Collections.Generic;
 using LearnGame.Movement;
+using UnityEngine;
 
 namespace LearnGame.States
 {
@@ -11,7 +12,7 @@ namespace LearnGame.States
 	{
 		private const float NavMeshTurnOffDistance = 5;
 		public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
-			NavMesher navMesher, EnemyTarget target)
+			NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter)
 		{
 			var idleState = new IdleState();
 			var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
@@ -24,13 +25,13 @@ namespace LearnGame.States
 			   {
 				new Transition(
 					findWayState,
-					() => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance),
+					() => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance && BaseCharacter.counterHealth == false),
                 new Transition(
                     moveForwardState,
-                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance),
+                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && BaseCharacter.counterHealth == false),
                  new Transition(
                     runaway,
-                    () => BaseCharacter.counterHealth>0
+                    () => BaseCharacter.counterHealth == true
                     ),
                }
 
@@ -50,17 +51,24 @@ namespace LearnGame.States
                {
                 new Transition(
                     idleState,
-                    () => target.Closest == null),
+                    () => target.Closest == null && BaseCharacter.counterHealth == false),
                 new Transition(
                     findWayState,
-                    () => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance),
+                    () => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance && BaseCharacter.counterHealth == false),
                 new Transition(
                     runaway,
-                    () => BaseCharacter.counterHealth>0
-                    ),
+                    () => BaseCharacter.counterHealth == true),
                }
 
             );
+            AddState(state: runaway, transitions: new List<Transition>
+               {
+                new Transition(
+                    idleState,
+                    () => target.Closest == null),
+               }
+
+           );
         }
 
 	}
