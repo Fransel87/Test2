@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LearnGame.Enemy;
+using UnityEngine;
 
 namespace LearnGame.Movement
 {
@@ -12,12 +13,17 @@ namespace LearnGame.Movement
         private float MaxRadiansDelta = 10f;
         public Vector3 MovementDirection { get; set; }
         public Vector3 LookDirection { get; set; }
-        public float WhomSpeed = _speed;
-        private CharacterController _CharacterController;
 
-		protected void Awake()
+        private float WhomSpeed = _speed;
+        private CharacterController _CharacterController;
+		private EnemyDirectionController _enemyDirectionController;
+		private PlayerMovementDirectionController _playerMovementDirectionController;
+
+        protected void Awake()
 		{
 			_CharacterController = GetComponent<CharacterController>();
+			_playerMovementDirectionController = GetComponent<PlayerMovementDirectionController>();
+            _enemyDirectionController = GetComponent<EnemyDirectionController>();
         }
 
 	
@@ -25,7 +31,11 @@ namespace LearnGame.Movement
 		{
             if (gameObject.name == "Player")
             {
-                WhomSpeed = PlayerMovementDirectionController._currentSpeed;
+                WhomSpeed = _playerMovementDirectionController._currentSpeed;
+            }
+			if (gameObject.layer == LayerUtils.EnemyLayer)
+			{
+				WhomSpeed = _enemyDirectionController._currentEnemySpeed;
             }
             Translate();
 			if (MaxRadiansDelta > 0f && LookDirection != Vector3.zero)

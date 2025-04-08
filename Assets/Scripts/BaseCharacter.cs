@@ -23,7 +23,7 @@ namespace LearnGame
 
         [SerializeField]
         private float _health = 10f;
-        public static bool counterHealth = false;
+        public bool counterHealth = false;
         public static int counter1 = 0;
 
         private CharacterMovementController _characterMovementController;
@@ -52,7 +52,7 @@ namespace LearnGame
 
             _characterMovementController.MovementDirection = direction;
             _characterMovementController.LookDirection = lookDirection;
-            if (_health <= 20f)
+            if (_health <= 10f)
                 counterHealth = true;
 
             if (_health <= 0f)

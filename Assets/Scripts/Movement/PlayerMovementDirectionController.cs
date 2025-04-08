@@ -11,7 +11,7 @@ namespace LearnGame.Movement
 		private UnityEngine.Camera _camera;
         [SerializeField]
         private int _nTimesMoreSpeed = 2;  // увеличение скорости в n раз
-        public static float _currentSpeed = CharacterMovementController._speed;
+        public float _currentSpeed = CharacterMovementController._speed;
         protected void Awake()
         {
 			_camera = UnityEngine.Camera.main;

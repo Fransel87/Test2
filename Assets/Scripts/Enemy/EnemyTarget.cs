@@ -36,6 +36,8 @@ namespace LearnGame.Enemy
             if (_player != null && DistanceFromAgentTo(_player.gameObject) < minDistance)
                 Closest = _player.gameObject;
         }
+        
+           
         public float DistanceToClosestfromAgent()
         {
             if (Closest != null)
@@ -54,7 +56,7 @@ namespace LearnGame.Enemy
             return size;
         }
 
-        private float DistanceFromAgentTo(GameObject go) => (_agentTransform.position - go.transform.position).magnitude;
+        public static float DistanceFromAgentTo(GameObject go) => (_agentTransform.position - go.transform.position).magnitude;
      }
     
 }
