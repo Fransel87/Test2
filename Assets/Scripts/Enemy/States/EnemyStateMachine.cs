@@ -11,32 +11,33 @@ namespace LearnGame.States
 	public class EnemyStateMachine : BaseStateMachine
 	{
 		private const float NavMeshTurnOffDistance = 5f;
-		public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
-			NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, float _viewRadius, EnemyCharacter enemyCharacter)
-		{
-			var idleState = new IdleState();
-			var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
-			var moveForwardState = new MoveForwardState(target, enemyDirectionController);
+        public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
+            NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, float _viewRadius, EnemyCharacter enemyCharacter)
+        {
+            var idleState = new IdleState();
+            var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
+            var moveForwardState = new MoveForwardState(target, enemyDirectionController);
             var runaway = new RunAway(target, enemyDirectionController);
 
             SetInitialState(idleState);
 
-			AddState(state: idleState, transitions: new List<Transition>
-			   {
-				new Transition(
-					findWayState,
-					() => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
+            AddState(state: idleState, transitions: new List<Transition>
+               {
+                new Transition(
+                    findWayState,
+                    () => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
                 new Transition(
                     moveForwardState,
                     () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
                  new Transition(
                     runaway,
-                    () => baseCharacter.counterHealth == true && 
-                    target.Closest.layer == LayerUtils.ShootingTargetLayer && (enemyDirectionController.transform.position - target.Closest.transform.position).magnitude <= _viewRadius
+                    () => baseCharacter.counterHealth == true &&
+                    target.Closest.layer == LayerUtils.ShootingTargetLayer &&
+                     target.DistanceToClosestfromAgent() <= _viewRadius
                     ),
                }
 
-			);
+            );
             AddState(state: findWayState, transitions: new List<Transition>
                {
                 new Transition(
@@ -66,7 +67,7 @@ namespace LearnGame.States
                {
                 new Transition(
                 idleState,
-                    () =>(enemyDirectionController.transform.position - target.Closest.transform.position).magnitude > _viewRadius || target.Closest.layer == LayerUtils.PickUpLayer),
+                    () =>((target.DistanceToClosestfromAgent() > _viewRadius && target.Closest.layer == LayerUtils.ShootingTargetLayer ) || target.Closest.layer == LayerUtils.PickUpLayer)),
                }
 
            );

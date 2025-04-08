@@ -13,7 +13,7 @@ namespace LearnGame.Enemy
         {
             if (hasexecuted == true)   //ускорение при побеге
             {
-                _currentEnemySpeed = 2 * CharacterMovementController._speed;
+                _currentEnemySpeed = 0.1f + CharacterMovementController._speed;
             }
         }
         public void UpdateMovementDirection(Vector3 targetPosition)

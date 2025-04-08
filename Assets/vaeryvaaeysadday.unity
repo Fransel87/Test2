@@ -554,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436580076880080715, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
       propertyPath: _viewRadius
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -818,13 +818,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21412268, y: 0.011818796, z: -0.002586076, w: -0.9767319}
-  m_LocalPosition: {x: 0.32593465, y: 3.0002272, z: -4.913457}
+  m_LocalRotation: {x: -0.15732855, y: 0.011948477, z: -0.0018988552, w: -0.98747224}
+  m_LocalPosition: {x: 0.34, y: 1.37, z: -5.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 34.241, y: -90.539, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.105, y: -1.387, z: -0.001}
 --- !u!114 &961739754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436580076880080715, guid: f51f870c2fee9864a9c0120129f95308, type: 3}
       propertyPath: _viewRadius
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

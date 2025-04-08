@@ -8,7 +8,7 @@ namespace LearnGame.Enemy
 	public class EnemyAiController : MonoBehaviour
 	{
         [SerializeField]
-        private float _viewRadius = 5f;
+        private float _viewRadius = 10f;
 
         private EnemyStateMachine _stateMachine;
         private EnemyTarget _target;

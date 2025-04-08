@@ -9,7 +9,7 @@ namespace LearnGame.Enemy.States
         private readonly EnemyTarget _target;
         private EnemyDirectionController _enemyDirectionController;
         private Vector3 _currentPoint;
-        private readonly float Distance = 6f;
+        private readonly float Distance = 15f;
 
         public RunAway(EnemyTarget target, EnemyDirectionController enemyDirectionController)
         {

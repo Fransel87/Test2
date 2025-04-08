@@ -52,7 +52,7 @@ namespace LearnGame
 
             _characterMovementController.MovementDirection = direction;
             _characterMovementController.LookDirection = lookDirection;
-            if (_health <= 10f)
+            if (_health <= 20f)
                 counterHealth = true;
 
             if (_health <= 0f)
