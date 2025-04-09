@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using LearnGame.FSM;
-using LearnGame.Movement;
 
 namespace LearnGame.Enemy.States
 {
@@ -9,7 +8,7 @@ namespace LearnGame.Enemy.States
         private readonly EnemyTarget _target;
         private EnemyDirectionController _enemyDirectionController;
         private Vector3 _currentPoint;
-        private readonly float Distance = 15f;
+        private readonly float Distance = 12f;
 
         public RunAway(EnemyTarget target, EnemyDirectionController enemyDirectionController)
         {

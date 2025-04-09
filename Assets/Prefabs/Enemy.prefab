@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxRadiansDelta: 10
-  WhomSpeed: 10
 --- !u!114 &2187308400804507693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +191,8 @@ MonoBehaviour:
   _baseWeaponPrefab: {fileID: -8548417231878281720, guid: 31cdb27f15342d044a8cbd8e875ef83a, type: 3}
   _BonusPrefab: {fileID: 0}
   _hand: {fileID: 2086597501170067474}
-  _health: 5
+  _health: 50
+  counterHealth: 0
 --- !u!136 &8233860285511223349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1ef94efc2da5d42a4d799ebfc1a6ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentEnemySpeed: 10
+  hasexecuted: 0
 --- !u!114 &7436580076880080715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38f2d8f02ddb194597116a119c09e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewRadius: 20
+  _viewRadius: 10
 --- !u!1 &8261921367990685999
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using LearnGame.Movement;
 using LearnGame.Enemy.States;
+using System.ComponentModel;
 
 namespace LearnGame.Enemy
 {
@@ -8,6 +9,7 @@ namespace LearnGame.Enemy
 	{
 		public Vector3 MovementDirection { get; private set; }
         public float _currentEnemySpeed = CharacterMovementController._speed;
+    
         public bool hasexecuted = false;
         protected void Update()
         {

@@ -3,8 +3,6 @@ using LearnGame.FSM;
 using LearnGame.Enemy;
 using LearnGame.Enemy.States;
 using System.Collections.Generic;
-using TMPro;
-using static UnityEngine.GraphicsBuffer;
 
 namespace LearnGame.States
 {
@@ -12,9 +10,9 @@ namespace LearnGame.States
 	{
 		private const float NavMeshTurnOffDistance = 5f;
         public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
-            NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, float _viewRadius, EnemyCharacter enemyCharacter)
+            NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, EnemyAiController enemyAiController, EnemyCharacter enemyCharacter)
         {
-            var idleState = new IdleState();
+            var idleState = new IdleState(enemyDirectionController);
             var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
             var moveForwardState = new MoveForwardState(target, enemyDirectionController);
             var runaway = new RunAway(target, enemyDirectionController);
@@ -25,15 +23,15 @@ namespace LearnGame.States
                {
                 new Transition(
                     findWayState,
-                    () => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
+                    (() =>((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.counterHealth == false))),
                 new Transition(
                     moveForwardState,
-                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
+                    () => ((target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance) && baseCharacter.counterHealth == false)),
                  new Transition(
                     runaway,
                     () => baseCharacter.counterHealth == true &&
-                    target.Closest.layer == LayerUtils.ShootingTargetLayer &&
-                     target.DistanceToClosestfromAgent() <= _viewRadius
+                    target.DistanceToClosestfromAgent() < enemyAiController._viewRadius &&
+                    target.Closest.layer == LayerUtils.ShootingTargetLayer
                     ),
                }
 
@@ -45,7 +43,8 @@ namespace LearnGame.States
                     () => target.Closest == null),
                 new Transition(
                     moveForwardState,
-                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance),
+                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
+                
                }
 
             );
@@ -53,10 +52,10 @@ namespace LearnGame.States
                {
                 new Transition(
                     idleState,
-                    () => target.Closest == null && baseCharacter.counterHealth == false),
+                    () => target.Closest == null),
                 new Transition(
                     findWayState,
-                    () => target.DistanceToClosestfromAgent() > _viewRadius && baseCharacter.counterHealth == false),
+                    () => ((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.counterHealth == false)),
                 new Transition(
                     runaway,
                     () => baseCharacter.counterHealth == true),
@@ -67,7 +66,7 @@ namespace LearnGame.States
                {
                 new Transition(
                 idleState,
-                    () =>((target.DistanceToClosestfromAgent() > _viewRadius && target.Closest.layer == LayerUtils.ShootingTargetLayer ) || target.Closest.layer == LayerUtils.PickUpLayer)),
+                    () => target.DistanceToClosestfromAgent() > enemyAiController._viewRadius || target.Closest.layer == LayerUtils.PickUpLayer),
                }
 
            );
