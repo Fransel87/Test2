@@ -192,7 +192,9 @@ MonoBehaviour:
   _BonusPrefab: {fileID: 0}
   _hand: {fileID: 2086597501170067474}
   _health: 50
-  counterHealth: 0
+  _kForHealthForRunAwayDevidedOn100: 0.3
+  IsPickedUpWeapon: 0
+  CounterHealth: 0
 --- !u!136 &8233860285511223349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -243,6 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewRadius: 10
+  KForRunningAwayDevidedOn100: 0.7
+  Randomizer: 0
+  HasExecutedFor2States: 0
 --- !u!1 &8261921367990685999
 GameObject:
   m_ObjectHideFlags: 0

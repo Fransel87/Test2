@@ -11,7 +11,7 @@ namespace LearnGame.Enemy
         public float _currentEnemySpeed = CharacterMovementController._speed;
     
         public bool hasexecuted;
-        protected void Awake()
+        protected void Awake ()
         {
             hasexecuted = false;
         }

@@ -14,7 +14,7 @@ namespace LearnGame.Camera
         [SerializeField]
 		private PlayerCharacter _player;
 		
-		protected void Awake()
+		protected void Start()
 		{
 			if (_player == null)
 				throw new NullReferenceException($"Ну где игрок {nameof(_player)}?");

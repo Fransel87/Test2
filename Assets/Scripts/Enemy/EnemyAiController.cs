@@ -12,7 +12,8 @@ namespace LearnGame.Enemy
         
         [SerializeField]
         public float KForRunningAwayDevidedOn100 = 0.7f;
-        public float Randomizer;
+        public float Randomizer; // для обновления рандомного числа при переходах между состояниями, где имеется runaway
+        public bool HasExecutedFor2States = false; // для обновления рандомного числа при переходах между состояниями, где имеется runaway
 
         private EnemyStateMachine _stateMachine;
         private EnemyTarget _target;

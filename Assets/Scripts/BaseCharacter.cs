@@ -1,11 +1,8 @@
 using UnityEngine;
 using LearnGame.Movement;
 using LearnGame.Shooting;
-using Unity.VisualScripting;
 using LearnGame.PickUp;
 using LearnGame.Bonus;
-using UnityEngine.TextCore.Text;
-
 
 namespace LearnGame
 {
@@ -47,7 +44,7 @@ namespace LearnGame
             IsPickedUpWeapon = false;
         }
 
-        protected void Start()
+             protected void Start()
         {
             SetWeapon(_baseWeaponPrefab);
         }

@@ -29,7 +29,6 @@ namespace LearnGame.PickUp
         }
         void Update()
 		{
-
             if (_currentCount < _maxCount)
             {
                 _currentSpawnTimerSeconds += Time.deltaTime;
@@ -44,7 +43,6 @@ namespace LearnGame.PickUp
 
                     var pickUp = Instantiate(_pickUpPrefab, randomPosition, Quaternion.identity, transform);
                     pickUp.OnPickedUp += OnItemPickedUp;
-
                 }
             }
 		}
@@ -53,15 +51,12 @@ namespace LearnGame.PickUp
             _currentCount--;
             pickedUpItem.OnPickedUp -= OnItemPickedUp;
         }
-
         protected void OnDrawGizmos()
         {
             var cashedColor = Handles.color;
             Handles.color = Color.green;
             Handles.DrawWireDisc(transform.position, Vector3.up, _range);
             Handles.color = cashedColor;
-
-
         }
     }
 }
