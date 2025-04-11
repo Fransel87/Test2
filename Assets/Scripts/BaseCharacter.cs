@@ -23,8 +23,14 @@ namespace LearnGame
 
         [SerializeField]
         private float _health = 10f;
-        public bool counterHealth = false;
-        public static int counter1 = 0;
+        private float _maxHealth;
+        [SerializeField]
+        private float _kForHealthForRunAwayDevidedOn100 = 0.3f;
+        public bool IsPickedUpWeapon;
+        
+
+        public bool CounterHealth = false;
+        public static int Counter1 = 0;
 
         private CharacterMovementController _characterMovementController;
         private IMovementDirectionSource _movementDirectionSource;
@@ -37,6 +43,8 @@ namespace LearnGame
             _movementDirectionSource = GetComponent<IMovementDirectionSource>();
             _shootingController = GetComponent<ShootingController>();
             _bonusController = GetComponent<BonusController>();
+            _maxHealth = _health;
+            IsPickedUpWeapon = false;
         }
 
         protected void Start()
@@ -52,8 +60,8 @@ namespace LearnGame
 
             _characterMovementController.MovementDirection = direction;
             _characterMovementController.LookDirection = lookDirection;
-            if (_health <= 20f)
-                counterHealth = true;
+            if (_health <= _maxHealth* _kForHealthForRunAwayDevidedOn100)
+                CounterHealth = true;
 
             if (_health <= 0f)
                 Destroy(gameObject);
@@ -73,15 +81,16 @@ namespace LearnGame
             {
                 var pickup = other.gameObject.GetComponent<PickUpWeapon>();
                 pickup.PickUp(this);
+                IsPickedUpWeapon = true;
                 Destroy(other.gameObject);
             }
             else if (LayerUtils.IsPickUpBonus(other.gameObject))
             {
-                if (gameObject.layer == LayerUtils.PlayerLayer && counter1 == 0)
+                if (gameObject.layer == LayerUtils.PlayerLayer && Counter1 == 0)
                 {
                     var pickup = other.gameObject.GetComponent<PickUpBonus>();
                     pickup.PickUp(this);
-                    counter1++;
+                    Counter1++;
                     Destroy(other.gameObject);
                 }
                 

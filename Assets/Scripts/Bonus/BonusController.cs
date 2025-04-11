@@ -26,7 +26,7 @@ namespace LearnGame.Bonus
                 _bonusTimer = -10f;
                 Destroy(_speedBonus.gameObject);
                 counter = 0;
-                BaseCharacter.counter1 = 0;
+                BaseCharacter.Counter1 = 0;
             }
         }
         public void SetBonus(SpeedBonus _bonusPrefab, Transform hand)

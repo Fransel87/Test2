@@ -10,16 +10,29 @@ namespace LearnGame.Enemy
         private readonly float _viewRadius;
         private readonly PlayerCharacter _player;
         private readonly Collider[] _colliders = new Collider[10];
-        public EnemyTarget(Transform agent, float viewRadius, PlayerCharacter player)
+        private readonly BaseCharacter _baseCharacter;
+        private int _targetLayer;
+        public EnemyTarget(Transform agent, float viewRadius, PlayerCharacter player, BaseCharacter baseCharacter)
         {
             _agentTransform = agent;
             _viewRadius = viewRadius;
             _player = player;
+            _baseCharacter = baseCharacter;
         }
         public void FindClosest()
         {
             float minDistance = float.MaxValue;
-            var count = FindAllTargets(LayerUtils.ShootingTargetMask);
+
+            if (_baseCharacter.IsPickedUpWeapon != true)
+            {
+                _targetLayer = LayerUtils.PickUpMask;
+            }
+            else
+            {
+                _targetLayer = LayerUtils.ShootingTargetMask;
+            }
+
+                var count = FindAllTargets(_targetLayer);
             for (int i = 0; i < count; i++)
             {
                 var go = _colliders[i].gameObject;

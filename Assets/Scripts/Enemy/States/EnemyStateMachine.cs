@@ -1,5 +1,4 @@
-﻿
-using LearnGame.FSM;
+﻿using LearnGame.FSM;
 using LearnGame.Enemy;
 using LearnGame.Enemy.States;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ namespace LearnGame.States
 	{
 		private const float NavMeshTurnOffDistance = 10f;
         public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
-            NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, EnemyAiController enemyAiController, EnemyCharacter enemyCharacter)
+            NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, EnemyAiController enemyAiController)
         {
             var idleState = new IdleState(enemyDirectionController);
             var findWayState = new FindWayState(target, navMesher, enemyDirectionController);
@@ -23,14 +22,15 @@ namespace LearnGame.States
                {
                 new Transition(
                     findWayState,
-                    (() =>((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.counterHealth == false))),
+                    (() =>((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.CounterHealth == false))),
                 new Transition(
                     moveForwardState,
-                    () => ((target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance) && baseCharacter.counterHealth == false)),
+                    () => ((target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance) && baseCharacter.CounterHealth == false)),
                  new Transition(
                     runaway,
-                    () => baseCharacter.counterHealth == true &&
-                    target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance
+                    () => baseCharacter.CounterHealth == true &&
+                    target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && 
+                    enemyAiController.KForRunningAwayDevidedOn100 >= enemyAiController.Randomizer
                     ),
                }
 
@@ -42,7 +42,7 @@ namespace LearnGame.States
                     () => target.Closest == null),
                 new Transition(
                     moveForwardState,
-                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && baseCharacter.counterHealth == false),
+                    () => target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance && baseCharacter.CounterHealth == false),
                 
                }
 
@@ -54,10 +54,10 @@ namespace LearnGame.States
                     () => target.Closest == null),
                 new Transition(
                     findWayState,
-                    () => ((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.counterHealth == false)),
+                    () => ((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.CounterHealth == false)),
                 new Transition(
                     runaway,
-                    () => baseCharacter.counterHealth == true),
+                    () => baseCharacter.CounterHealth == true && enemyAiController.KForRunningAwayDevidedOn100 >= enemyAiController.Randomizer),
                }
 
             );
