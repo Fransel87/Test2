@@ -8,7 +8,7 @@ namespace LearnGame.States
 {
 	public class EnemyStateMachine : BaseStateMachine
 	{
-		private const float NavMeshTurnOffDistance = 5f;
+		private const float NavMeshTurnOffDistance = 10f;
         public EnemyStateMachine(EnemyDirectionController enemyDirectionController,
             NavMesher navMesher, EnemyTarget target, BaseCharacter baseCharacter, EnemyAiController enemyAiController, EnemyCharacter enemyCharacter)
         {
@@ -30,8 +30,7 @@ namespace LearnGame.States
                  new Transition(
                     runaway,
                     () => baseCharacter.counterHealth == true &&
-                    target.DistanceToClosestfromAgent() < enemyAiController._viewRadius &&
-                    target.Closest.layer == LayerUtils.ShootingTargetLayer
+                    target.DistanceToClosestfromAgent() <= NavMeshTurnOffDistance
                     ),
                }
 
@@ -66,7 +65,7 @@ namespace LearnGame.States
                {
                 new Transition(
                 idleState,
-                    () => target.DistanceToClosestfromAgent() > enemyAiController._viewRadius || target.Closest.layer == LayerUtils.PickUpLayer),
+                    () => target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance || target.Closest.layer == LayerUtils.PickUpLayer),
                }
 
            );

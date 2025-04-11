@@ -10,7 +10,11 @@ namespace LearnGame.Enemy
 		public Vector3 MovementDirection { get; private set; }
         public float _currentEnemySpeed = CharacterMovementController._speed;
     
-        public bool hasexecuted = false;
+        public bool hasexecuted;
+        protected void Awake()
+        {
+            hasexecuted = false;
+        }
         protected void Update()
         {
             if (hasexecuted == true)   //ускорение при побеге
