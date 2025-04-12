@@ -10,24 +10,19 @@ namespace LearnGame.Camera
 
         [SerializeField]
         private Vector3 _rotationOffset = Vector3.zero;
-
-        [SerializeField]
-		private PlayerCharacter _player;
-		
-		protected void Start()
+        protected void Start()
 		{
-			if (_player == null)
-				throw new NullReferenceException($"Ну где игрок {nameof(_player)}?");
+			if (CharacterSpawnerController.player1 == null)
+				throw new NullReferenceException($"Ну где игрок {nameof(CharacterSpawnerController.player1)}?");
 		}
 
 	
 		protected void LateUpdate()
 		{
-			if (_player != null)
+			if (CharacterSpawnerController.player1 != null)
 			{
-
 				Vector3 targetRotation = _rotationOffset - _followCameraOffset;
-				transform.position = _player.transform.position + _followCameraOffset;
+                transform.position = CharacterSpawnerController.player1.transform.position + _followCameraOffset;
 				transform.rotation = Quaternion.LookRotation(targetRotation, Vector3.up);
 			}
         }

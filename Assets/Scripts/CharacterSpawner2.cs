@@ -1,20 +1,19 @@
-﻿using LearnGame.Enemy;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace LearnGame
 {
-    public class CharacterSpawner : MonoBehaviour
+    public class CharacterSpawner2 : MonoBehaviour
     {
+        public static Vector3 randomPosition;
+
         [SerializeField]
         private float _range = 2f;
 
-        public static Vector3 randomPosition1;
         void Awake()
         {
             var randomPointInsideRange = Random.insideUnitCircle * _range;
-            randomPosition1 = new Vector3(randomPointInsideRange.x, 0f, randomPointInsideRange.y) + transform.position;
-            
+            randomPosition = new Vector3(randomPointInsideRange.x, 0f, randomPointInsideRange.y) + transform.position;
         }
         
         protected void OnDrawGizmos()

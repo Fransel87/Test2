@@ -12,13 +12,15 @@ namespace LearnGame.Enemy
         
         [SerializeField]
         public float KForRunningAwayDevidedOn100 = 0.7f;
+        [HideInInspector]
         public float Randomizer; // для обновления рандомного числа при переходах между состояниями, где имеется runaway
+        [HideInInspector]
         public bool HasExecutedFor2States = false; // для обновления рандомного числа при переходах между состояниями, где имеется runaway
 
         private EnemyStateMachine _stateMachine;
         private EnemyTarget _target;
 
-        protected void Awake()
+        protected void Start()
         {
             Randomizer = Random.value;
             var enemyAiController = GetComponent<EnemyAiController>();

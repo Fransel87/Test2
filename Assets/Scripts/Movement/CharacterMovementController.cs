@@ -29,7 +29,7 @@ namespace LearnGame.Movement
 	
 		protected void Update()
 		{
-            if (gameObject.name == "Player")
+            if (gameObject.layer == LayerUtils.PlayerLayer)
             {
                 WhomSpeed = _playerMovementDirectionController._currentSpeed;
             }

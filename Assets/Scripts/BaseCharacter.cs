@@ -21,11 +21,13 @@ namespace LearnGame
         [SerializeField]
         private float _health = 10f;
         private float _maxHealth;
-        [SerializeField]
-        private float _kForHealthForRunAwayDevidedOn100 = 0.3f;
-        public bool IsPickedUpWeapon;
-        
 
+        [SerializeField]
+        private float _KHealthForRunAwayDevidedOn100 = 0.3f;
+        [HideInInspector]
+        public bool IsPickedUpWeapon;
+
+        [HideInInspector]
         public bool CounterHealth = false;
         public static int Counter1 = 0;
 
@@ -34,7 +36,7 @@ namespace LearnGame
         private ShootingController _shootingController;
         private BonusController _bonusController;
 
-        protected void Awake()
+        protected void Start()
         {
             _characterMovementController = GetComponent<CharacterMovementController>();
             _movementDirectionSource = GetComponent<IMovementDirectionSource>();
@@ -42,10 +44,7 @@ namespace LearnGame
             _bonusController = GetComponent<BonusController>();
             _maxHealth = _health;
             IsPickedUpWeapon = false;
-        }
-
-             protected void Start()
-        {
+      
             SetWeapon(_baseWeaponPrefab);
         }
         protected void Update()
@@ -57,7 +56,7 @@ namespace LearnGame
 
             _characterMovementController.MovementDirection = direction;
             _characterMovementController.LookDirection = lookDirection;
-            if (_health <= _maxHealth* _kForHealthForRunAwayDevidedOn100)
+            if (_health <= _maxHealth* _KHealthForRunAwayDevidedOn100)
                 CounterHealth = true;
 
             if (_health <= 0f)

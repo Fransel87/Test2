@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 3551413323625706604}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 106131248920892406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.17, z: 0}
+  m_LocalPosition: {x: -11.35, y: 1.46, z: -2.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxRadiansDelta: 10
-  WhomSpeed: 10
 --- !u!114 &9087921492159873801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +171,10 @@ MonoBehaviour:
   _baseWeaponPrefab: {fileID: 2196260248195360384, guid: bdebdfbb3a940ad47b142c5eff4f1e33, type: 3}
   _BonusPrefab: {fileID: 3222686875206507051, guid: 5aedfc0250f8115468a010e2aeaa1232, type: 3}
   _hand: {fileID: 3363687262418552936}
-  _health: 10
+  _health: 100
+  _kForHealthForRunAwayDevidedOn100: 0.3
+  IsPickedUpWeapon: 0
+  CounterHealth: 0
 --- !u!114 &1525497530960103628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nTimesMoreSpeed: 2
+  _currentSpeed: 10
 --- !u!114 &1065608418374618222
 MonoBehaviour:
   m_ObjectHideFlags: 0

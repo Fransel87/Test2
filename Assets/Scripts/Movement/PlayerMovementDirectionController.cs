@@ -1,6 +1,5 @@
 ﻿using LearnGame.Bonus;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
 
 namespace LearnGame.Movement
@@ -11,8 +10,8 @@ namespace LearnGame.Movement
 		private UnityEngine.Camera _camera;
         [SerializeField]
         private int _nTimesMoreSpeed = 2;  // увеличение скорости в n раз
-        public float _currentSpeed = CharacterMovementController._speed;
-        protected void Awake()
+        public float _currentSpeed;
+        protected void Start()
         {
 			_camera = UnityEngine.Camera.main;
           

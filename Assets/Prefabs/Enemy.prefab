@@ -192,7 +192,7 @@ MonoBehaviour:
   _BonusPrefab: {fileID: 0}
   _hand: {fileID: 2086597501170067474}
   _health: 50
-  _kForHealthForRunAwayDevidedOn100: 0.3
+  _KHealthForRunAwayDevidedOn100: 0.5
   IsPickedUpWeapon: 0
   CounterHealth: 0
 --- !u!136 &8233860285511223349

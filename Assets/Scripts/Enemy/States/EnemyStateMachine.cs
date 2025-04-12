@@ -22,7 +22,7 @@ namespace LearnGame.States
 
             AddState(state: idleState, transitions: new List<Transition>
                {
-                new Transition(
+                new Transition( // с рандомным выбором убегать дальше или нападать заново
                     findWayState,
                     () =>((target.DistanceToClosestfromAgent() > NavMeshTurnOffDistance) && baseCharacter.CounterHealth == false ||
 

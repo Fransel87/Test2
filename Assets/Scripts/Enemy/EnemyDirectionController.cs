@@ -9,7 +9,8 @@ namespace LearnGame.Enemy
 	{
 		public Vector3 MovementDirection { get; private set; }
         public float _currentEnemySpeed = CharacterMovementController._speed;
-    
+
+        [HideInInspector]
         public bool hasexecuted;
         protected void Awake ()
         {
@@ -21,6 +22,7 @@ namespace LearnGame.Enemy
             {
                 _currentEnemySpeed = 0.1f + CharacterMovementController._speed;
             }
+            
         }
         public void UpdateMovementDirection(Vector3 targetPosition)
 		{
